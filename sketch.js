@@ -24,52 +24,87 @@
 //     x = x + random(-5, 5);
 // }
 
-var bgcolor;
-var slider;
-var nameInput;
-var nameP;
+// var bgcolor;
+// var slider;
+// var nameInput;
+// var nameP;
 
-function setup(){
-    canvas = createCanvas(200, 200);
-    canvas.mouseOver(overPara);
-    canvas.mouseOut(outPara);
-    canvas.mousePressed(changeColor);
+// function setup(){
+//     canvas = createCanvas(200, 200);
+//     canvas.mouseOver(overPara);
+//     canvas.mouseOut(outPara);
+//     canvas.mousePressed(changeColor);
 
-    bgcolor= color(200);
-    nameP = createP("Your name!");
+//     bgcolor= color(200);
+//     nameP = createP("Your name!");
 
-    button = createButton('go');
-    button.mousePressed(changeColor);
-    slider = createSlider(10, 100, 47);
-    nameInput = createInput("type your name");
+//     button = createButton('go');
+//     button.mousePressed(changeColor);
+//     slider = createSlider(10, 100, 47);
+//     nameInput = createInput("type your name");
 
     
-    nameP.mouseOver(overPara);
-    nameP.mouseOut(outPara);
+//     nameP.mouseOver(overPara);
+//     nameP.mouseOut(outPara);
 
-    nameInput.changed(updateText);
+//     nameInput.changed(updateText);
+// }
+
+// function updateText(){
+//     nameP.html(nameInput.value());
+// }
+
+// function overPara(){
+//     nameP.html("your mouse is over me!");
+// }
+
+// function outPara(){
+//     nameP.html("your mouse is out");
+// }
+// function changeColor() {
+//     bgcolor = color(random(255));
+// }
+
+
+// function draw(){
+//   background(bgcolor);
+//   fill(255, 0, 175);
+//   ellipse(100, 100, slider.value(), slider.value());
+//   // nameP.html(nameInput.value());
+//   text(nameInput.value(), 10, 10);
+// }
+
+
+
+////The Basics of CSS
+
+var bgcolor;
+var button;
+var txt;
+
+function setup(){
+    createCanvas(200, 200);
+    bgcolor = color(51);
+    txt = createP("some text");
+    txt.mouseOver(changeStyle);
+    txt.mouseOut(revertStyle);
+
+    // txt.style("background-color", "pink");
+    button = createButton("go");
+    button.mousePressed(changeStyle);
 }
 
-function updateText(){
-    nameP.html(nameInput.value());
+function changeStyle(){
+    txt.style("background-color", "pink");
+    txt.style("padding", "24px");
 }
 
-function overPara(){
-    nameP.html("your mouse is over me!");
+function revertStyle(){
+    txt.style("background-color", "purple");
+    txt.style("padding", "8px"); 
 }
-
-function outPara(){
-    nameP.html("your mouse is out");
-}
-function changeColor() {
-    bgcolor = color(random(255));
-}
-
-
 function draw(){
-  background(bgcolor);
-  fill(255, 0, 175);
-  ellipse(100, 100, slider.value(), slider.value());
-  // nameP.html(nameInput.value());
-  text(nameInput.value(), 10, 10);
+    background(bgcolor);
+    fill(255, 0, 175);
+    ellipse(100, 100, 50, 50);
 }
