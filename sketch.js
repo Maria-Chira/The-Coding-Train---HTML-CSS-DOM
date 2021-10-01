@@ -25,25 +25,31 @@
 // }
 
 var bgcolor;
+var slider;
+var input;
+var nameP;
 
 function setup(){
     canvas = createCanvas(200, 200);
     bgcolor= color(200);
-    button = createButton('go go go');
+    nameP = createP("Your name!");
+    button = createButton('go');
     button.mousePressed(changeColor);
+
+    slider = createSlider(10, 100, 47);
+
+    input = createInput("type your name");
 }
 
 function changeColor() {
     bgcolor = color(random(255));
 }
 
-// function mousePressed(){
-    // bgcolor = color(random(255));
-//     changeColor();
-// }
 
 function draw(){
     background(bgcolor);
     fill(255, 0, 175);
-    rect(100, 100, 50, 50);
+    ellipse(100, 100, slider.value(), slider.value());
+    nameP.html(input.value());
+    text(input.value(), 10, 10);
 }
