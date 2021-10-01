@@ -78,33 +78,57 @@
 
 ////The Basics of CSS
 
-var bgcolor;
-var button;
-var txt;
+// var bgcolor;
+// var button;
+// var txt;
+
+// function setup(){
+//     createCanvas(200, 200);
+//     bgcolor = color(51);
+//     txt = createP("some text");
+//     txt.mouseOver(changeStyle);
+//     txt.mouseOut(revertStyle);
+
+//     // txt.style("background-color", "pink");
+//     button = createButton("go");
+//     button.mousePressed(changeStyle);
+// }
+
+// function changeStyle(){
+//     txt.style("background-color", "pink");
+//     txt.style("padding", "24px");
+// }
+
+// function revertStyle(){
+//     txt.style("background-color", "purple");
+//     txt.style("padding", "8px"); 
+// }
+// function draw(){
+//     background(bgcolor);
+//     fill(255, 0, 175);
+//     ellipse(100, 100, 50, 50);
+// }
+
+//Events "changed" and "input"
+var textbox;
+var slider;
+var paragraph;
 
 function setup(){
-    createCanvas(200, 200);
-    bgcolor = color(51);
-    txt = createP("some text");
-    txt.mouseOver(changeStyle);
-    txt.mouseOut(revertStyle);
+    noCanvas();
+    paragraph = createP("starting text");
+    textbox = createInput("enter text");
+    slider = createSlider(10, 64, 16);
 
-    // txt.style("background-color", "pink");
-    button = createButton("go");
-    button.mousePressed(changeStyle);
+    textbox.changed(doSomething);
+    // textbox.input(updateText); // .input it didn't work :(
+    // slider.input(updateSize);
 }
 
-function changeStyle(){
-    txt.style("background-color", "pink");
-    txt.style("padding", "24px");
+function updateSize(){
+    paragraph.style("font-size", slider.value() + "pt");
 }
 
-function revertStyle(){
-    txt.style("background-color", "purple");
-    txt.style("padding", "8px"); 
-}
-function draw(){
-    background(bgcolor);
-    fill(255, 0, 175);
-    ellipse(100, 100, 50, 50);
+function doSomething(){
+    paragraph.html(textbox.value());
 }
