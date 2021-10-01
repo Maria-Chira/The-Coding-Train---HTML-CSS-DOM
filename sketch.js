@@ -26,30 +26,50 @@
 
 var bgcolor;
 var slider;
-var input;
+var nameInput;
 var nameP;
 
 function setup(){
     canvas = createCanvas(200, 200);
+    canvas.mouseOver(overPara);
+    canvas.mouseOut(outPara);
+    canvas.mousePressed(changeColor);
+
     bgcolor= color(200);
     nameP = createP("Your name!");
+
     button = createButton('go');
     button.mousePressed(changeColor);
-
     slider = createSlider(10, 100, 47);
+    nameInput = createInput("type your name");
 
-    input = createInput("type your name");
+    
+    nameP.mouseOver(overPara);
+    nameP.mouseOut(outPara);
+
+    nameInput.changed(updateText);
 }
 
+function updateText(){
+    nameP.html(nameInput.value());
+}
+
+function overPara(){
+    nameP.html("your mouse is over me!");
+}
+
+function outPara(){
+    nameP.html("your mouse is out");
+}
 function changeColor() {
     bgcolor = color(random(255));
 }
 
 
 function draw(){
-    background(bgcolor);
-    fill(255, 0, 175);
-    ellipse(100, 100, slider.value(), slider.value());
-    nameP.html(input.value());
-    text(input.value(), 10, 10);
+  background(bgcolor);
+  fill(255, 0, 175);
+  ellipse(100, 100, slider.value(), slider.value());
+  // nameP.html(nameInput.value());
+  text(nameInput.value(), 10, 10);
 }
