@@ -109,26 +109,32 @@
 //     ellipse(100, 100, 50, 50);
 // }
 
+
+
+
+
+
+
 //Events "changed" and "input"
-var textbox;
-var slider;
-var paragraph;
+// var textbox;
+// var slider;
+// var paragraph;
 
-function setup(){
-    noCanvas();
-    paragraph = createP("starting text");
-    textbox = createInput("enter text");
-    slider = createSlider(10, 64, 16);
+// function setup(){
+//     noCanvas();
+//     paragraph = createP("starting text");
+//     textbox = createInput("enter text");
+//     slider = createSlider(10, 64, 16);
 
-    textbox.changed(doSomething);
-    // textbox.input(updateText); // .input it didn't work :(
-    // slider.input(updateSize);
-}
+//     textbox.changed(doSomething);
+//     // textbox.input(updateText); // .input it didn't work :(
+//     // slider.input(updateSize);
+// }
 
-function updateSize(){
-    paragraph.style("font-size", slider.value() + "pt");
-}
+// function updateSize(){
+//     paragraph.style("font-size", slider.value() + "pt");
+// }
 
-function doSomething(){
-    paragraph.html(textbox.value());
-}
+// function doSomething(){
+//     paragraph.html(textbox.value());
+// }
