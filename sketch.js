@@ -141,30 +141,36 @@
 
 
 //select() and selectAll()
-// var paragraph;
+
+var paragraph;
 var paragraphs;
 function setup(){
   createCanvas(100, 100);
   background(0);
 
-    // createP("This is a paragraph made by");
-    // createP("This is a random number " + random(100));
-    //  paragraph = select("#unicorn");
-    // paragraphs = selectAll("p");
-    paragraphs = selectAll(".rainbow");
+    // paragraph = select("#unicorn");
+    // paragraph.mouseOver(highlight);
+    // paragraph.mouseOut(unhighlight);
+    paragraphs = selectAll("p");
+//     paragraphs = selectAll(".rainbow");
   for (var i=0; i<paragraphs.length; i++){
-      paragraphs[i].style("font-size", "24pt")
+      paragraphs[i].mouseOver(highlight);
+      paragraphs[i].mouseOut(unhighlight);
   }
-  paragraph.mouseOver(changeBackground);
-
-  var button = select ("#button");
-  button.mousePressed(canvasBg);
 }
 
-function canvasBg(){
-    background(random(255));
+function highlight(){
+    this.style("padding","16pt");
+    this.style("background-color", "purple");
+}
+
+function unhighlight(){
+    this.style("padding", "0pt");
+    this.style("background-color", "white");
 }
 
 function changeBackground() {
   paragraph.style("background-color", "blue");
 }
+
+
