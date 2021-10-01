@@ -138,3 +138,33 @@
 // function doSomething(){
 //     paragraph.html(textbox.value());
 // }
+
+
+//select() and selectAll()
+// var paragraph;
+var paragraphs;
+function setup(){
+  createCanvas(100, 100);
+  background(0);
+
+    // createP("This is a paragraph made by");
+    // createP("This is a random number " + random(100));
+    //  paragraph = select("#unicorn");
+    // paragraphs = selectAll("p");
+    paragraphs = selectAll(".rainbow");
+  for (var i=0; i<paragraphs.length; i++){
+      paragraphs[i].style("font-size", "24pt")
+  }
+  paragraph.mouseOver(changeBackground);
+
+  var button = select ("#button");
+  button.mousePressed(canvasBg);
+}
+
+function canvasBg(){
+    background(random(255));
+}
+
+function changeBackground() {
+  paragraph.style("background-color", "blue");
+}
